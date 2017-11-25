@@ -4,12 +4,12 @@ var graphql = require('graphql');
 // It will be changeable after introducing mutation.
 
 var TODOs = [{
-    "id": 1446412739542,
+    "id": 1445,
     "title": "Read emails",
     "completed": false
   },
   {
-    "id": 1446412740883,
+    "id": 1446,
     "title": "Buy orange",
     "completed": true
   }
