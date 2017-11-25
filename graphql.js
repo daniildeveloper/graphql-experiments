@@ -1,0 +1,1 @@
+var graphql = requrie('graphql');
