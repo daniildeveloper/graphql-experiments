@@ -44,6 +44,35 @@ var queryType = new graphql.GraphQLObjectType({
   }
 });
 
+var MutationAdd = {
+  type: new graphql.GraphQLList(TodoType),
+  description: 'Add todo',
+  args: {
+    title: {
+      name: 'Todo title',
+      type: new graphql.GraphQLNonNull(graphql.GraphQLString)
+    }
+  },
+  resolve: (root, {
+    title
+  }) => {
+    TODOs.push({
+      id: (new Date().getTime()),
+      title: title,
+      completed: false
+    });
+    return TODOs;
+  }
+};
+
+var MutationType = new graphql.GraphQLObjectType({
+  name: 'Mutation',
+  fields: {
+    add: MutationAdd
+  }
+});
+
 module.exports = new graphql.GraphQLSchema({
-  query: queryType
-})
+  query: queryType,
+  mutation: MutationType
+});
